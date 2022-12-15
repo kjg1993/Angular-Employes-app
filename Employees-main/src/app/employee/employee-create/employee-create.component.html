@@ -1,0 +1,57 @@
+<mat-card>
+  <form (submit)="onSaveEmployee(employeeForm)" #employeeForm="ngForm">
+    <mat-form-field color="accent">
+      <input
+        matInput
+        type="text"
+        name="name"
+        [ngModel]="employee.name"
+        required
+        minlength="3"
+        placeholder="Employee Name"
+        #name="ngModel"
+      />
+      <mat-error *ngIf="name.invalid">Please enter a name.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+      <input
+        matInput
+        name="position"
+        [ngModel]="employee.position"
+        required
+        placeholder="Position"
+        #position="ngModel"
+      />
+      <mat-error *ngIf="position.invalid">Please enter a position.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+      <input
+        matInput
+        name="office"
+        [ngModel]="employee.office"
+        required
+        placeholder="office"
+        #office="ngModel"
+      />
+      <mat-error *ngIf="office.invalid">Please enter a office.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+      <input
+        matInput
+        name="salary"
+        [ngModel]="employee.salary"
+        required
+        placeholder="salary"
+        #salary="ngModel"
+      />
+      <mat-error *ngIf="salary.invalid">Please enter a salary</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="accent" type="submit">
+      Save Employee
+    </button>
+  </form>
+</mat-card>

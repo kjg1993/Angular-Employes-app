@@ -1,0 +1,21 @@
+:host{
+    display: block;
+    margin-top: 1rem;
+}
+
+mat-spinner{
+margin: auto;
+}
+
+.info-text{
+    text-align: center;
+}
+
+mat-form-field{
+    width: 100%;
+ 
+}
+.search{
+    margin-bottom: 1em;
+}
+

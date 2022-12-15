@@ -1,0 +1,40 @@
+<h1>Employees</h1>
+<mat-card class="search">
+  <mat-form-field color="accent">
+    <input
+      matInput
+      type="text"
+      class="form-control"
+      #searchBox
+      (keyup)="search(searchBox.value)"
+      placeholder="Enter a Employee"
+    />
+  </mat-form-field>
+</mat-card>
+<!-- 
+<mat-spinner *ngIf="isLoading"></mat-spinner> -->
+<mat-accordion multi="true" *ngIf="employees.length > 0 && !isLoading">
+  <mat-expansion-panel
+    *ngFor="let employee of employees | EmployeeFilterPipe : term"
+  >
+    <mat-expansion-panel-header>
+      {{ employee.name }}
+    </mat-expansion-panel-header>
+    <p>Position: {{ employee.position }}</p>
+    <p>Office: {{ employee.office }}</p>
+    <p>Salary: {{ employee.salary }}</p>
+
+    <mat-action-row>
+      <a mat-button color="accent" [routerLink]="['/edit', employee.id]">
+        <i class="material-icons">edit</i>
+      </a>
+
+      <button mat-button color="warn" (click)="onDelete(employee.id)">
+        <i class="material-icons">delete</i>
+      </button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<h2 class="info-text mat-body-1" *ngIf="employees.length <= 0 && !isLoading">
+  No employee added yet.
+</h2>
